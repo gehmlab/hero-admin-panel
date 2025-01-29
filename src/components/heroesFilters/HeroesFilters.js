@@ -3,8 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 
-import { fetchFilters } from '../../actions';
-import { filtersChanged } from './filtersSlice';
+import { filtersChanged, fetchFilters } from './filtersSlice';
 import Spinner from '../spinner/Spinner';
 
 // Задача для этого компонента:
@@ -21,7 +20,7 @@ const HeroesFilters = () => {
     console.log(filters, "фильтры")
     // Запрос на сервер для получения фильтров и последовательной смены состояния
     useEffect(() => {
-        dispatch(fetchFilters(request));
+        dispatch(fetchFilters());
         // dispatch(filtersFetching());
         // request("http://localhost:3001/filters")
         //     .then(data => {
